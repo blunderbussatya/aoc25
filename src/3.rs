@@ -7,7 +7,6 @@ fn max_with_idx<T: Ord + std::fmt::Debug>(v: &[T]) -> (usize, &T) {
         .rev()
         .enumerate()
         .max_by_key(|(_, val)| *val)
-        .map(|(idx, val)| (idx, val))
         .unwrap();
     (v.len() - idx, val)
 }
@@ -33,7 +32,7 @@ fn main() -> anyhow::Result<()> {
         })
         .sum::<u64>();
     println!("Part1: {}", ans);
-    
+
     let mut ans2 = 0;
     for v in input {
         let mut cur = 0;

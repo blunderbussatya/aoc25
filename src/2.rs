@@ -13,7 +13,7 @@ fn main() -> anyhow::Result<()> {
         })
         .collect::<Vec<_>>();
 
-    let ans = (1..1_000_01)
+    let ans = (1..100_001)
         .map(|i| {
             let cur = format!("{i}{i}").parse::<u64>().unwrap();
             let in_range = input.iter().any(|v| v[0] <= cur && v[1] >= cur);
@@ -24,7 +24,7 @@ fn main() -> anyhow::Result<()> {
     println!("Part1: {ans}");
     let mut unique = HashSet::new();
 
-    for i in 1..1_000_01 {
+    for i in 1..100_001 {
         let mut cur = format!("{i}");
         for _ in 1..10 {
             cur = format!("{cur}{i}");
